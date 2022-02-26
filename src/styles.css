@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+section,
+header {
+  font-family: 'Roboto Mono', monospace;
+  
+}
+
+body {
+  background: linear-gradient(
+    136deg,
+    rgb(242,238,227),
+    rgb(245,222,150),
+    rgb(244,236,181)
+  );
+}
+
+.cursor {
+  cursor: pointer;
+}
+

@@ -1,0 +1,59 @@
+<section class="container p-3">
+  <h2 class="mt-3 text-center">Nueva entrada al Blog</h2>
+
+  <a class="btn btn-secondary w-100 mt-3" [routerLink]="['/home']">Volver al Blog</a>
+
+ <form [formGroup]="formPost" (ngSubmit)="getDataForm()">
+
+  <div class="my-2 form-group">
+    <label for="title">Titulo(*)</label>
+    <input type="text" id="title" class="form-control" placeholder="Introduce un titulo" formControlName="title">
+    <p class="text-danger small" *ngIf="checkControl('title', 'required')">*El campo es obligatorio</p>
+  </div>
+
+  <div class="my-2 form-group">
+    <label for="author">Autor(*)</label>
+    <input type="text" id="author" class="form-control" placeholder="Introduce el autor/a" formControlName="author">
+    <p class="text-danger small" *ngIf="checkControl('author', 'required')">*El campo es obligatorio</p>
+  </div>
+
+
+    <div class="my-2 form-group">
+      <label for="date">Fecha(*) (dd/mm/aaaa)</label>
+      <input type="text" id="date" class="form-control" placeholder="Introduce la fecha en formato dd/mm/aaaa" formControlName="date">
+      <p class="text-danger small" *ngIf="checkControl('date', 'required')">*El campo es obligatorio</p>
+      <p class="text-danger small" *ngIf="checkControl('date', 'pattern')">*Formato incorrecto</p>
+    </div>
+  
+    <div class="my-2">
+      <label for="category">Categoría(*)</label>
+      <select name="category" id="category" class="form-select" formControlName="category">
+        <option value="" selected>Selecciona una categoria</option>
+        <option *ngFor="let category of arrCategories" [value]="category?.title">{{category?.title}}</option>        
+      </select>
+      <p class="text-danger small" *ngIf="checkControl('category', 'required')">*El campo es obligatorio</p>
+    </div>
+
+
+
+  <div class="my-2 form-group">
+    <label for="img">Imagen(*) (URL) <small>Formatos válidos: png|jpg|jpeg|gif|svg </small></label>
+    <input type="text" id="title" class="form-control" placeholder="Introduce la URL de la imagen" formControlName="img">
+    <p class="text-danger small" *ngIf="checkControl('img', 'required')">*El campo es obligatorio</p>
+    <p class="text-danger small" *ngIf="checkControl('img', 'pattern')">*La URL no es válida</p>
+  </div>
+
+
+  <div class="my-2 form-group">
+    <label for="body">Cuerpo de texto(*)</label>
+    <textarea name="body" id="body" cols="30" rows="10" class="form-control" formControlName="body"></textarea>
+    <p class="text-danger small" *ngIf="checkControl('body', 'required')">*El campo es obligatorio</p>
+
+  </div>
+
+<input type="submit" class="btn btn-warning w-100" value="Publicar" [disabled]="!formPost.valid">
+
+ </form>
+ 
+ 
+</section>

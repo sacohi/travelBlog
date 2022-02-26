@@ -1,0 +1,21 @@
+<header class="bg bg-light shadow">
+  <div class="d-flex justify-content-around align-item-center">
+    
+    <div class="p-4">
+      <h1 class="text-warning text-center cursor" [routerLink]="['/home']">Blog de viajes</h1>
+    </div>
+    
+    <figure class="mt-3">
+      <img src="https://cdn-icons.flaticon.com/png/128/826/premium/826070.png?token=exp=1645376276~hmac=6cc32e003b98545e71e22cce4f24c0e9" alt="logo" class="logo cursor" [routerLink]="['/home']">
+    </figure>
+  
+    <div class="p-4">
+      <select name="category" id="category" class="p-2 cursor form-select my-2" (change)="onSelectCategory($event)">
+        <option value="" selected>Selecciona una categoria---</option>
+        <option *ngFor="let category of arrCategories" [value]="category?.title">{{category?.title}}</option>
+        
+      </select>
+    </div>
+
+  </div>
+</header>
