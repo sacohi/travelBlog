@@ -59,8 +59,6 @@ getPostByCategory(pCat: string) : Post[]{
   } else {
     return this.arrPost;
   }
-
-  // return this.arrPost.filter(post => post.category === pCat );
   
 }
 

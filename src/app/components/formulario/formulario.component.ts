@@ -54,18 +54,13 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.activatedRoute.params.subscribe(params => {
-    //   if(params['idpost']){
-
-    //   }
-    // })
 
     this.arrCategories = this.postService.getAllCategories();
    
   }
 
   getDataForm(){
-    //this.newPost.emit(this.formPost.value);
+    
     console.log(this.formPost.value);
     this.postService.agregarPost(this.formPost.value);
     this.formPost.reset({category: ''});
